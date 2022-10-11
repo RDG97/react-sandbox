@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
-let x = 0;
+import Hello from './Hello';
+import Button from './button';
+
 //function App() {
 //  return (
 //    <div className="App">
@@ -24,6 +26,22 @@ let x = 0;
 //  );
 //}
 //export default App;
+
+
+function Dyl(props) {
+  const [ count, setCount ] = useState(0);
+  const [ name, setName ] = useState('Dylan')
+  const handleClick = (e) => {
+    setCount(count + 1);
+  }
+  return (
+    <>
+    <h1>{name}</h1>
+    <h1>{count}</h1>
+    <button onClick={handleClick} >hey</button>
+    </>
+  )
+}
 
 function MyButton({ count, onClick }) {
   return (
@@ -84,6 +102,11 @@ export default function MyApp() {
       <SquidButton />
       <Squid />
       <Squid />
+      <Button />
+      <Hello name="Mason" father="true" tallAf="true" />
+      <Hello name="Sarah" father="false" tallAf="true" />
+      <Hello name="Cooper" father="false" tallAf="false" />
+      <Dyl />
     </div>
   );
 }
